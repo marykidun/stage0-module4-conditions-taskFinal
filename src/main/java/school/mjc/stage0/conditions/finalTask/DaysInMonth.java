@@ -1,21 +1,45 @@
 package school.mjc.stage0.conditions.finalTask;
 
+import javax.swing.*;
+
 public class DaysInMonth {
-    public void printDays(int year, int month) {
-        String result;
-        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 ||)
-            System.out.println("31");
-         result = ((year % 4 == 0 && year % 100 != 0) ? "leap" : (year % 400 == 0) ? "leap" : "not leap");
-        System.out.println(result);
+    public static void printDays(int year, int month) {
+        switch(month) {
+            case (2):
+                if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
+                    System.out.println("Leap, 29 days");
+                } else if (year <= 0) {
+                    System.out.println("invalid date");
+                } else {
+                    System.out.println("Not leap, 28 days");
+                }
+                break;
 
-        else if (month == 4 || month == 6 || month == 9 || month == 11)
-            System.out.println("30");
-            System.out.println(result);
-        else if (month == 2 && )
-            System.out.println("29");
-            System.out.println(result);
+            case (1):
+            case (3):
+            case (5):
+            case (7):
+            case (8):
+            case (10):
+            case (12):
+                System.out.println("31");
+
+                break;
+            case (4):
+            case (6):
+            case (9):
+            case (11):
+                System.out.println("30");
+                break;
 
 
+            default:
+                System.out.println("invalid date");
+                break;
 
-    }
+        } }
+
+        public static void main(String[] args) {
+            printDays(1985, 3);
+}
 }
